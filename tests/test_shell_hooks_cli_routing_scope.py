@@ -1,4 +1,4 @@
-"""Regression tests for issue #2326.
+"""Shell hooks must select the hooks write-routing scope.
 
 The portable shell hooks shell out to ``mempalace mine`` instead of writing
 through the in-process ``mempalace.hooks_cli`` path, so they must export
@@ -111,7 +111,7 @@ class TestSaveHookExportsHooksScope:
         assert marker.exists(), f"mine was never invoked: stderr={result.stderr!r}"
         assert marker.read_text().splitlines() == ["hooks"], (
             "shell-hook-triggered mine must resolve the 'hooks' write-routing "
-            "scope, not 'cli' (issue #2326)"
+            "scope, not 'cli'"
         )
 
 
@@ -143,7 +143,7 @@ class TestPrecompactHookExportsHooksScope:
         assert marker.exists(), f"mine was never invoked: stderr={result.stderr!r}"
         assert marker.read_text().splitlines() == ["hooks"], (
             "shell-hook-triggered mine must resolve the 'hooks' write-routing "
-            "scope, not 'cli' (issue #2326)"
+            "scope, not 'cli'"
         )
 
 
@@ -175,7 +175,7 @@ class TestCursorHooksExportHooksScope:
         )
         assert marker.read_text().splitlines() == ["hooks"], (
             "shell-hook-triggered mine must resolve the 'hooks' write-routing "
-            "scope, not 'cli' (issue #2326)"
+            "scope, not 'cli'"
         )
 
 
