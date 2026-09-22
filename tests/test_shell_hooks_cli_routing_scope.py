@@ -110,8 +110,7 @@ class TestSaveHookExportsHooksScope:
 
         assert marker.exists(), f"mine was never invoked: stderr={result.stderr!r}"
         assert marker.read_text().splitlines() == ["hooks"], (
-            "shell-hook-triggered mine must resolve the 'hooks' write-routing "
-            "scope, not 'cli'"
+            "shell-hook-triggered mine must resolve the 'hooks' write-routing scope, not 'cli'"
         )
 
 
@@ -142,8 +141,7 @@ class TestPrecompactHookExportsHooksScope:
         assert result.returncode == 0, result.stderr
         assert marker.exists(), f"mine was never invoked: stderr={result.stderr!r}"
         assert marker.read_text().splitlines() == ["hooks"], (
-            "shell-hook-triggered mine must resolve the 'hooks' write-routing "
-            "scope, not 'cli'"
+            "shell-hook-triggered mine must resolve the 'hooks' write-routing scope, not 'cli'"
         )
 
 
@@ -174,8 +172,7 @@ class TestCursorHooksExportHooksScope:
             f"mine was never invoked: rc={result.returncode} stderr={result.stderr!r}"
         )
         assert marker.read_text().splitlines() == ["hooks"], (
-            "shell-hook-triggered mine must resolve the 'hooks' write-routing "
-            "scope, not 'cli'"
+            "shell-hook-triggered mine must resolve the 'hooks' write-routing scope, not 'cli'"
         )
 
 
